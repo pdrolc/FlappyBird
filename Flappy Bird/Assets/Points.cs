@@ -5,6 +5,7 @@ using UnityEngine;
 public class Points : MonoBehaviour
 {
     public GameController controller;
+    public AudioSource pointAudio;
 
     void Start()
     {
@@ -15,5 +16,6 @@ public class Points : MonoBehaviour
     {
         controller.Score++;
         controller.scoreText.text = controller.Score.ToString();
+        pointAudio.Play();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Bird : MonoBehaviour
     public GameObject GameOver;
     public AudioSource wingAudio;
     public AudioSource hitAudio;
+    public string gameOverSceneName;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +28,7 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D colisor)
     {
-        GameOver.SetActive(true);
+        SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Additive);
         Time.timeScale = 0;
         hitAudio.Play();
     }

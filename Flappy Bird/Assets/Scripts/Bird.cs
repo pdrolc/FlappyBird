@@ -5,26 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour
 {
-    public float speed = 1f;
-    public float fallSpeed = 2f;
+    public float speed;
     private Rigidbody2D rb;
-    public GameObject GameOver;
     public AudioSource wingAudio;
     public AudioSource hitAudio;
+    public float tiltUpAngle;
+    public float tiltDownAngle;
+    public float tiltDownSpeed;
     public string gameOverSceneName;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Pipes pipe = GetComponent<Pipes>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             rb.velocity = Vector2.up * speed;
             wingAudio.Play();
+            transform.rotation = Quaternion.Euler(0, 0, tiltUpAngle);
+        }
+        if (rb.velocity.y < 0)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, tiltDownAngle), tiltDownSpeed * Time.deltaTime);
+        }
+        else if (rb.velocity.y > 0)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, tiltUpAngle), tiltDownSpeed * Time.deltaTime);
         }
     }
 

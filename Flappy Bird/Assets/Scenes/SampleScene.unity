@@ -308,10 +308,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  fallSpeed: 2
-  GameOver: {fileID: 0}
   wingAudio: {fileID: 51447489}
   hitAudio: {fileID: 51447490}
+  tiltUpAngle: 30
+  tiltDownAngle: -60
+  tiltDownSpeed: 5
   gameOverSceneName: GameOver
 --- !u!82 &51447489
 AudioSource:

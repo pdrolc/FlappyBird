@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
+  fallSpeed: 2
   GameOver: {fileID: 0}
   wingAudio: {fileID: 51447489}
   hitAudio: {fileID: 51447490}
@@ -599,7 +600,7 @@ GameObject:
   - component: {fileID: 110262671}
   - component: {fileID: 110262670}
   m_Layer: 0
-  m_Name: Spawn Pipes
+  m_Name: SpawnPipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,7 +888,7 @@ GameObject:
   - component: {fileID: 1124262180}
   - component: {fileID: 1124262182}
   - component: {fileID: 1124262183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

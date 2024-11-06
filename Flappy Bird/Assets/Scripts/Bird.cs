@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Bird : MonoBehaviour
 {
     public float speed = 1f;
+    public float fallSpeed = 2f;
     private Rigidbody2D rb;
     public GameObject GameOver;
     public AudioSource wingAudio;
@@ -14,6 +15,7 @@ public class Bird : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Pipes pipe = GetComponent<Pipes>();
     }
 
     // Update is called once per frame
@@ -28,8 +30,8 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D colisor)
     {
-        SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Additive);
         Time.timeScale = 0;
         hitAudio.Play();
+        SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Additive);
     }
 }
